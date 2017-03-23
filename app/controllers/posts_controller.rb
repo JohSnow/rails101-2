@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @group = Group.find(params[:group_id])
     @post = Post.find(params[:id])
 
-    if @post = Post.update(post_params)
+    if @post.update(post_params)
         redirect_to account_posts_path, notice: "Upadate Success!"
     else
       render :edit
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
     flash[:alert] = "Post deleted!"
     redirect_to account_posts_path
   end
-  
+
   private
 
   def post_params
